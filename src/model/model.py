@@ -142,10 +142,10 @@ async def main():
         urls = [email[0] for email in emails]
         email = [email[1] for email in emails]
 
-    img_bytes = await donwload(urls[:2])
+    img_bytes = await donwload(urls)
 
     results = detect_faces(img_bytes)
-    results_email = list(zip(results, email[:2]))
+    results_email = list(zip(results, email))
     with open("data/faces_summary.csv",  "a+") as f:
         f.write("url, email, face_area_percentage\n")
     for user, email in results_email:

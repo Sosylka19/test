@@ -1,4 +1,4 @@
-import os, zulip, requests
+import zulip
 from urllib.parse import urljoin
 
 client = zulip.Client(config_file="~/test/test/src/parser/zuliprc")
