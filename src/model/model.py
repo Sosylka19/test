@@ -141,21 +141,21 @@ async def main():
         emails = [email[:-1].split() for email in emails]
         urls = [email[0] for email in emails]
         email = [email[1] for email in emails]
+        time_active = [email[2] for email in emails]
 
     img_bytes = await donwload(urls)
 
     results = detect_faces(img_bytes)
-    results_email = list(zip(results, email))
+    results_email = list(zip(results, email, time_active))
     with open("data/faces_summary.csv",  "a+") as f:
-        f.write("url, email, face_area_percentage\n")
-    for user, email in results_email:
+        f.write("url, email, face_area_percentage, last_time_active\n")
+    for user, email, time_active in results_email:
 
         url, has_face, info = user
         if not (has_face and threshold(info.get("face_area_percent", 0))):
             with open("data/faces_summary.csv", "a+") as f:
-                f.write(f"{url}, {email}, {info.get('face_area_percentage', 0)}\n")
+                f.write(f"{url}, {email}, {info.get('face_area_percentage', 0)}, {time_active}\n")
             
-
 
 if __name__ == "__main__":
     asyncio.run(main())
