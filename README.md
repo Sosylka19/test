@@ -24,7 +24,7 @@ python -m src.parser.parser && python -m src.model.model
 ```
 
 Поля в отчете по пользователям, которые не имеют аватарку в `data/no_avatars.txt`:
-> emails(поля)
+> emails, last_time_active
 
 Поля в отчете по пользователям, у которых аватар не валидный(процент лица на фото меньше заданного threshold или нет лица на фото) в `data/faces_summary.csn`:
->url, email, face_area_percantage
+>url, email, face_area_percantage, last_time_active
