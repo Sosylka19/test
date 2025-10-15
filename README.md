@@ -9,7 +9,7 @@ cd test
 Установить бота в зулипе и скопировать zuliprc в директорию src.model
 
 Также сделать .env файл со след полями:
->ZULIP_EMAIL = "<BOT_NAME>@chat.miem.hse.ru"
+>ZULIP_EMAIL = "<BOT_NAME>@<Домен зулипа или вашего сервера>"
 
 >ZULIP_API_KEY = "<BOT_API_KEY>"
 
